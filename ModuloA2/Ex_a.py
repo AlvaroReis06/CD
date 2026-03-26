@@ -49,3 +49,21 @@ def analisar_fonte(caminho_ficheiro):
     plt.grid(axis='y', alpha=0.75)
     plt.show()
 
+if __name__ == '__main__':
+    import sys
+    import os
+    
+    # Executa a função passando o ficheiro como argumento no terminal
+    # Exemplo: python Ex_a.py ficheiro.txt
+    if len(sys.argv) > 1:
+        analisar_fonte(sys.argv[1])
+    else:
+        print("-> Dica de uso no terminal: python Ex_a.py <caminho_ficheiro>")
+        print("-> A rodar com um ficheiro de demonstração predefinido...\n")
+        
+        ficheiro_teste = "demo_ex1a.txt"
+        if not os.path.exists(ficheiro_teste):
+            with open(ficheiro_teste, "w", encoding='utf-8') as f:
+                f.write("AABBCCCDDDD texto de exemplo para calcular entropia e frequencias!!")
+        
+        analisar_fonte(ficheiro_teste)
